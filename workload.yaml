@@ -1,249 +1,350 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workload-stress-0
+  namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
+spec:
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-0
+        image: quay.io/josephdrichard/workload_stress:image-0
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-1
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-1
-    image: quay.io/josephdrichard/workload_stress:image-1
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-1
+        image: quay.io/josephdrichard/workload_stress:image-1
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-2
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-2
-    image: quay.io/josephdrichard/workload_stress:image-2
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-2
+        image: quay.io/josephdrichard/workload_stress:image-2
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-3
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-3
-    image: quay.io/josephdrichard/workload_stress:image-3
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-3
+        image: quay.io/josephdrichard/workload_stress:image-3
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-4
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-4
-    image: quay.io/josephdrichard/workload_stress:image-4
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-4
+        image: quay.io/josephdrichard/workload_stress:image-4
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-5
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-5
-    image: quay.io/josephdrichard/workload_stress:image-5
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-5
+        image: quay.io/josephdrichard/workload_stress:image-5
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-6
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-6
-    image: quay.io/josephdrichard/workload_stress:image-6
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-6
+        image: quay.io/josephdrichard/workload_stress:image-6
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-7
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-7
-    image: quay.io/josephdrichard/workload_stress:image-7
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-7
+        image: quay.io/josephdrichard/workload_stress:image-7
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-8
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-8
-    image: quay.io/josephdrichard/workload_stress:image-8
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-8
+        image: quay.io/josephdrichard/workload_stress:image-8
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 10
+            memory: "1000Mi"
+          requests:
+            cpu: 10
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: workload-stress-9
   namespace: default
+  labels: 
+    node-role.kubernetes.io/worker-cnf: ""
 spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-9
-    image: quay.io/josephdrichard/workload_stress:image-9
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 10
-        memory: "1000Mi"
-      requests:
-        cpu: 10
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: workload-stress-10
-  namespace: default
-spec:
-  restartPolicy: Never
-  imagePullPolicy: Always
-  containers:
-  - name: workload-stress-10
-    image: quay.io/josephdrichard/workload_stress:image-10
-    imagePullPolicy: Always
-    env: []
-    securityContext:
-      capabilities:
-        add: ["IPC_LOCK","SYS_ADMIN"]
-    resources:
-      limits:
-        cpu: 12
-        memory: "1000Mi"
-      requests:
-        cpu: 12
-        memory: "1000Mi"
-  nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
+  selector:
+    matchLabels:
+      node-role.kubernetes.io/worker-cnf: ""
+  restartPolicy: Always
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        node-role.kubernetes.io/worker-cnf: ""
+    spec:
+      containers:
+      - name: workload-stress-9
+        image: quay.io/josephdrichard/workload_stress:image-9
+        imagePullPolicy: Always
+        env: []
+        securityContext:
+          capabilities:
+            add: ["IPC_LOCK","SYS_ADMIN"]
+        resources:
+          limits:
+            cpu: 12
+            memory: "1000Mi"
+          requests:
+            cpu: 12
+            memory: "1000Mi"
+      nodeName: cnfde3.ptp.lab.eng.bos.redhat.com
